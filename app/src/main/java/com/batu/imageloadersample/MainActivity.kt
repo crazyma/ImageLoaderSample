@@ -6,8 +6,10 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import coil.load
+import coil.transform.CircleCropTransformation
 import com.batu.imageloadersample.databinding.ActivityMainBinding
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import kotlinx.coroutines.delay
 
 class MainActivity : AppCompatActivity() {
@@ -32,24 +34,36 @@ class MainActivity : AppCompatActivity() {
     private fun setupViews() = with(binding) {
         Glide.with(glideImageView1)
             .load(url)
+            .circleCrop()
             .into(glideImageView1)
 
         Glide.with(glideImageView2)
             .load(url)
+            .circleCrop()
             .into(glideImageView2)
 
         Glide.with(glideImageView3)
             .load(url)
+            .circleCrop()
             .into(glideImageView3)
 
         Glide.with(glideImageView4)
             .load(url)
+            .circleCrop()
             .into(glideImageView4)
 
-        coilImageView1.load(url)
-        coilImageView2.load(url)
-        coilImageView3.load(url)
-        coilImageView4.load(url)
+        coilImageView1.load(url) {
+            transformations(listOf(CircleCropTransformation()))
+        }
+        coilImageView2.load(url) {
+            transformations(listOf(CircleCropTransformation()))
+        }
+        coilImageView3.load(url) {
+            transformations(listOf(CircleCropTransformation()))
+        }
+        coilImageView4.load(url) {
+            transformations(listOf(CircleCropTransformation()))
+        }
 
         fixedImageView.setImageResource(R.drawable.mario)
         wrapContentImageView.setImageResource(R.drawable.mario)
@@ -60,8 +74,14 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launchWhenCreated {
             delay(2_000)
             with(binding) {
-                Log.d("badu", "fixedImageView width: ${fixedImageView.width}, height: ${fixedImageView.width}")
-                Log.d("badu", "wrapContentImageView width: ${wrapContentImageView.width}, height: ${wrapContentImageView.width}")
+                Log.d(
+                    "badu",
+                    "fixedImageView width: ${fixedImageView.width}, height: ${fixedImageView.width}"
+                )
+                Log.d(
+                    "badu",
+                    "wrapContentImageView width: ${wrapContentImageView.width}, height: ${wrapContentImageView.width}"
+                )
                 Log.d("badu", "glide image 1 : ${getSizeInfo(glideImageView1)}")
                 Log.d("badu", "glide image 2 : ${getSizeInfo(glideImageView2)}")
                 Log.d("badu", "glide image 3 : ${getSizeInfo(glideImageView3)}")
