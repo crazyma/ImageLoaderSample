@@ -1,14 +1,13 @@
 package com.batu.imageloadersample
 
 import android.os.Bundle
-import android.util.Log
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import coil.load
 import com.batu.imageloadersample.databinding.ActivityMainBinding
 import com.bumptech.glide.Glide
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,6 +16,12 @@ class MainActivity : AppCompatActivity() {
             "https://w7.pngwing.com/pngs/1000/635/png-transparent-super-mario-bros-donkey-kong" +
                 "-super-mario-world-mario-bros-super-mario-bros-donkey-kong-super-mario-world" +
                 "-thumbnail.png" // 360*408
+
+        private const val url2 =
+            "https://megapx-assets.dcard.tw/images/42b6ddc8-8b51-4769-9925-75190b486c9f/1280.jpeg"
+
+        // lFIXv,EO?b%LsXRP~pn3M|MdRjwI$fIV%1IW$$RP
+        private const val blurHashString = "L?N9-1?]XSR6kXn~oIW=bbjYj[bH"
     }
 
     private lateinit var binding: ActivityMainBinding
@@ -30,72 +35,36 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupViews() = with(binding) {
-        Glide.with(glideImageView1)
-            .load(url)
-            .into(glideImageView1)
+        Glide.with(originalImageView)
+            .load(url2)
+            .into(originalImageView)
 
-        Glide.with(glideImageView2)
-            .load(url)
-            .into(glideImageView2)
+//        Glide.with(blurImageView)
+//            .load(url2)
+//            .into(blurImageView)
 
-        Glide.with(glideImageView3)
-            .load(url)
-            .into(glideImageView3)
-
-        Glide.with(glideImageView4)
-            .load(url)
-            .into(glideImageView4)
-
-        coilImageView1.load(url)
-        coilImageView2.load(url)
-        coilImageView3.load(url)
-        coilImageView4.load(url)
-
-        fixedImageView.setImageResource(R.drawable.mario)
-        wrapContentImageView.setImageResource(R.drawable.mario)
+//        val blurHash = BlurHash(this@MainActivity)
+//        Glide.with(blurImageView)
+//            .load(url2)
+//            .blurPlaceHolder(blurHashString, blurImageView, blurHash) { requestBuilder ->
+//                requestBuilder.into(blurImageView)
+//            }
     }
 
     override fun onStart() {
         super.onStart()
-        lifecycleScope.launchWhenCreated {
-            delay(2_000)
-            with(binding) {
-                Log.d("badu", "fixedImageView width: ${fixedImageView.width}, height: ${fixedImageView.width}")
-                Log.d("badu", "wrapContentImageView width: ${wrapContentImageView.width}, height: ${wrapContentImageView.width}")
-                Log.d("badu", "glide image 1 : ${getSizeInfo(glideImageView1)}")
-                Log.d("badu", "glide image 2 : ${getSizeInfo(glideImageView2)}")
-                Log.d("badu", "glide image 3 : ${getSizeInfo(glideImageView3)}")
-                Log.d("badu", "glide image 4 : ${getSizeInfo(glideImageView4)}")
-                Log.d("badu", "coil image 1 : ${getSizeInfo(coilImageView1)}")
-                Log.d("badu", "coil image 2 : ${getSizeInfo(coilImageView2)}")
-                Log.d("badu", "coil image 3 : ${getSizeInfo(coilImageView3)}")
-                Log.d("badu", "coil image 4 : ${getSizeInfo(coilImageView4)}")
-                Log.d("badu", "fix image: ${getSizeInfo(fixedImageView)}")
-                Log.d("badu", "wrap content image : ${getSizeInfo(wrapContentImageView)}")
+        lifecycleScope.launchWhenStarted {
+            val bitmap = withContext(Dispatchers.IO) {
+                delay(1_000)
+                BlurHashDecoder2.decode(
+                    blurHashString,
+                    825,
+                    825,
+                    1f,
+                    useCache = false
+                )
             }
+            binding.blurImageView.setImageBitmap(bitmap)
         }
     }
-
-    private fun getSizeInfo(imageView: ImageView): String =
-        "width: ${imageView.drawable.intrinsicWidth}, height: ${imageView.drawable.intrinsicHeight}"
 }
-
-/*
-
-RequestOptions.circleCropTransform()
-
-public static RequestOptions circleCropTransform() {
-    if (circleCropOptions == null) {
-      circleCropOptions = new RequestOptions().circleCrop().autoClone();
-    }
-    return circleCropOptions;
-  }
-
-  @NonNull
-  @CheckResult
-  public T circleCrop() {
-    return transform(DownsampleStrategy.CENTER_INSIDE, new CircleCrop());
-  }
-
-
- */

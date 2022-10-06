@@ -20,93 +20,8 @@
 			android:layout_height="wrap_content"
 			android:orientation="vertical">
 
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_margin="8dp"
-				android:text="Load Image from Internet by glide"
-				android:textSize="16sp" />
-
 			<ImageView
-				android:id="@+id/glideImageView1"
-				android:layout_width="50dp"
-				android:layout_height="50dp"
-				android:layout_margin="8dp"
-				android:background="#88880000"
-				tools:ignore="ContentDescription" />
-
-			<ImageView
-				android:id="@+id/glideImageView2"
-				android:layout_width="100dp"
-				android:layout_height="100dp"
-				android:layout_margin="8dp"
-				android:background="#88880000"
-				tools:ignore="ContentDescription" />
-
-			<ImageView
-				android:id="@+id/glideImageView3"
-				android:layout_width="200dp"
-				android:layout_height="200dp"
-				android:layout_margin="8dp"
-				android:background="#88880000"
-				tools:ignore="ContentDescription" />
-
-			<ImageView
-				android:id="@+id/glideImageView4"
-				android:layout_width="300dp"
-				android:layout_height="300dp"
-				android:layout_margin="8dp"
-				android:background="#88880000"
-				tools:ignore="ContentDescription" />
-
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_margin="8dp"
-				android:text="Load Image from Internet by Coil"
-				android:textSize="16sp" />
-
-			<ImageView
-				android:id="@+id/coilImageView1"
-				android:layout_width="50dp"
-				android:layout_height="50dp"
-				android:layout_margin="8dp"
-				android:background="#88880000"
-				tools:ignore="ContentDescription" />
-
-			<ImageView
-				android:id="@+id/coilImageView2"
-				android:layout_width="100dp"
-				android:layout_height="100dp"
-				android:layout_margin="8dp"
-				android:background="#88880000"
-				tools:ignore="ContentDescription" />
-
-			<ImageView
-				android:id="@+id/coilImageView3"
-				android:layout_width="200dp"
-				android:layout_height="200dp"
-				android:layout_margin="8dp"
-				android:background="#88880000"
-				tools:ignore="ContentDescription" />
-
-			<ImageView
-				android:id="@+id/coilImageView4"
-				android:layout_width="300dp"
-				android:layout_height="300dp"
-				android:layout_margin="8dp"
-				android:background="#88880000"
-				tools:ignore="ContentDescription" />
-
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_margin="8dp"
-				android:text="Load Image from Resource"
-				android:textSize="16sp" />
-
-			<ImageView
-				android:id="@+id/fixedImageView"
+				android:id="@+id/originalImageView"
 				android:layout_width="300dp"
 				android:layout_height="300dp"
 				android:layout_margin="8dp"
@@ -114,9 +29,9 @@
 				tools:ignore="ContentDescription" />
 
 			<ImageView
-				android:id="@+id/wrapContentImageView"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
+				android:id="@+id/blurImageView"
+				android:layout_width="300dp"
+				android:layout_height="300dp"
 				android:layout_margin="8dp"
 				android:background="#88880000"
 				tools:ignore="ContentDescription" />
