@@ -1,6 +1,9 @@
+@file:OptIn(ExperimentalTime::class)
+
 package com.batu.imageloadersample
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.batu.imageloadersample.databinding.ActivityMainBinding
@@ -8,6 +11,8 @@ import com.bumptech.glide.Glide
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
+import kotlin.time.ExperimentalTime
+import kotlin.time.TimeSource
 
 class MainActivity : AppCompatActivity() {
 
@@ -56,13 +61,30 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launchWhenStarted {
             val bitmap = withContext(Dispatchers.IO) {
                 delay(1_000)
+                val mark = TimeSource.Monotonic.markNow()
                 BlurHashDecoder2.decode(
                     blurHashString,
-                    825,
-                    825,
+                    16,
+                    16,
                     1f,
-                    useCache = false
-                )
+                    useCache = true
+                ).also {
+                    Log.d("badu", "Elapsed time: ${mark.elapsedNow()} $url")
+                }
+
+                delay(1_000)
+
+                val mark2 = TimeSource.Monotonic.markNow()
+                BlurHashDecoder2.decode(
+                    blurHashString,
+                    16,
+                    16,
+                    1f,
+                    useCache = true
+                ).also {
+                    Log.i("badu", "Elapsed time: ${mark2.elapsedNow()} $url")
+                }
+
             }
             binding.blurImageView.setImageBitmap(bitmap)
         }
