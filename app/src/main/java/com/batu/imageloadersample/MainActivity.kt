@@ -1,15 +1,14 @@
 package com.batu.imageloadersample
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import coil.load
 import com.batu.imageloadersample.databinding.ActivityMainBinding
-import com.bumptech.glide.Glide
-import kotlinx.coroutines.delay
+import kotlin.time.ExperimentalTime
+import kotlin.time.TimeSource
 
+@OptIn(ExperimentalTime::class)
 class MainActivity : AppCompatActivity() {
 
     companion object {
@@ -17,6 +16,52 @@ class MainActivity : AppCompatActivity() {
             "https://w7.pngwing.com/pngs/1000/635/png-transparent-super-mario-bros-donkey-kong" +
                 "-super-mario-world-mario-bros-super-mario-bros-donkey-kong-super-mario-world" +
                 "-thumbnail.png" // 360*408
+
+        // 246 KB
+        private const val url1 =
+            "https://images.nintendolife.com/d63a0e81bb26f/mario-strikers-battle-league.large.jpg"
+
+        // 369 KB
+        private const val url2 =
+            "https://staticctf.akamaized.net/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/3MN69tPhVvfQzmLFJqRlTx/fb7720ad648739b85dc43e3e0566e2a7/RKB2_UCS21580_KEYART_wide_RGB-NO_LOGO.jpg"
+
+        // 58 KB
+        private const val url3 =
+            "https://media.wired.com/photos/5926c1288d4ebc5ab806b602/master/pass/SuperMarioRunHP.jpg"
+
+        // 1.1 MB
+        private const val url4 = "https://i1.wp.com/popbee.com/image/2022/10/fotojet-62.jpg"
+
+        // 79 KB
+        private const val url5 =
+            "https://assets.reedpopcdn.com/Chris-Pratt---Super-Mario-Remake---TRAILER-0-21-screenshot.png/BROK/resize/1200x1200%3E/format/jpg/quality/70/Chris-Pratt---Super-Mario-Remake---TRAILER-0-21-screenshot.png"
+
+        // 202 KB
+        private const val url6 = "https://cdn.mos.cms.futurecdn.net/fnCUp2iAAm7qfSP6dJqL6U.jpg"
+
+        // 219 KB
+        private const val url7 =
+            "https://gettotext.com/wp-content/uploads/2022/08/A-version-of-Mario-prohibited-for-children-under-18-would.jpeg"
+
+        // 304 KB
+        private const val url8 =
+            "https://www.jotform.com/blog/wp-content/uploads/2012/07/mario-luigi-yoschi-figures-163036.jpeg"
+
+        // 36 KB
+        private const val url9 =
+            "https://i0.wp.com/mynintendonews.com/wp-content/uploads/2021/02/super_mario_3d_world_bowsers_fury.jpg"
+
+        // 426 KB
+        private const val url10 =
+            "https://www.gematsu.com/wp-content/uploads/2022/05/Mario-Strikers-Battle-League_2022_05-05-22_010.jpg"
+
+        // 147 KB
+        private const val url11 =
+            "https://cdn.vox-cdn.com/thumbor/R-gm7dugGLH5txdRaGnJDVuno8s=/0x0:1920x1080/1200x800/filters:focal(807x387:1113x693)/cdn.vox-cdn.com/uploads/chorus_image/image/69900882/Sw_SuperMarioParty_090618_PressKit_SCRN_01_bmp_jpgcopy.0.jpg"
+
+        // 149 KB
+        private const val url12 =
+            "https://assets1.ignimgs.com/2020/09/15/mario35allstarspack-blogroll-1600209099732_160w.jpg?width=1280"
     }
 
     private lateinit var binding: ActivityMainBinding
@@ -30,54 +75,36 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupViews() = with(binding) {
-        Glide.with(glideImageView1)
-            .load(url)
-            .into(glideImageView1)
+        val mark: TimeSource.Monotonic.ValueTimeMark = TimeSource.Monotonic.markNow()
+//        val mark: TimeSource.Monotonic.ValueTimeMark? = null
+        setupImage(imageView1, url1, mark)
+        setupImage(imageView2, url2, mark)
+        setupImage(imageView3, url3, mark)
+        setupImage(imageView4, url4, mark)
+        setupImage(imageView5, url5, mark)
+        setupImage(imageView6, url6, mark)
+        setupImage(imageView7, url7, mark)
+        setupImage(imageView8, url8, mark)
+        setupImage(imageView9, url9, mark)
+        setupImage(imageView10, url10, mark)
+        setupImage(imageView11, url11, mark)
+        setupImage(imageView12, url12, mark)
+    }
 
-        Glide.with(glideImageView2)
-            .load(url)
-            .into(glideImageView2)
-
-        Glide.with(glideImageView3)
-            .load(url)
-            .into(glideImageView3)
-
-        Glide.with(glideImageView4)
-            .load(url)
-            .into(glideImageView4)
-
-        coilImageView1.load(url)
-        coilImageView2.load(url)
-        coilImageView3.load(url)
-        coilImageView4.load(url)
-
-        fixedImageView.setImageResource(R.drawable.mario)
-        wrapContentImageView.setImageResource(R.drawable.mario)
+    private fun setupImage(
+        imageView: ImageView,
+        url: String,
+        mark: TimeSource.Monotonic.ValueTimeMark? = null
+    ) {
+        imageView.loadImage(url, mark)
     }
 
     override fun onStart() {
         super.onStart()
         lifecycleScope.launchWhenCreated {
-            delay(2_000)
-            with(binding) {
-                Log.d("badu", "fixedImageView width: ${fixedImageView.width}, height: ${fixedImageView.width}")
-                Log.d("badu", "wrapContentImageView width: ${wrapContentImageView.width}, height: ${wrapContentImageView.width}")
-                Log.d("badu", "glide image 1 : ${getSizeInfo(glideImageView1)}")
-                Log.d("badu", "glide image 2 : ${getSizeInfo(glideImageView2)}")
-                Log.d("badu", "glide image 3 : ${getSizeInfo(glideImageView3)}")
-                Log.d("badu", "glide image 4 : ${getSizeInfo(glideImageView4)}")
-                Log.d("badu", "coil image 1 : ${getSizeInfo(coilImageView1)}")
-                Log.d("badu", "coil image 2 : ${getSizeInfo(coilImageView2)}")
-                Log.d("badu", "coil image 3 : ${getSizeInfo(coilImageView3)}")
-                Log.d("badu", "coil image 4 : ${getSizeInfo(coilImageView4)}")
-                Log.d("badu", "fix image: ${getSizeInfo(fixedImageView)}")
-                Log.d("badu", "wrap content image : ${getSizeInfo(wrapContentImageView)}")
-            }
+
         }
     }
-
-    private fun getSizeInfo(imageView: ImageView): String =
-        "width: ${imageView.drawable.intrinsicWidth}, height: ${imageView.drawable.intrinsicHeight}"
 }
 
 /*
