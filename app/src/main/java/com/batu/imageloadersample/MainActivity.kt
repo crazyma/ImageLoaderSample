@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.batu.imageloadersample.databinding.ActivityMainBinding
 import kotlin.time.ExperimentalTime
+import kotlin.time.TimeMark
 import kotlin.time.TimeSource
 
 @OptIn(ExperimentalTime::class)
@@ -75,8 +76,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupViews() = with(binding) {
-        val mark: TimeSource.Monotonic.ValueTimeMark = TimeSource.Monotonic.markNow()
-//        val mark: TimeSource.Monotonic.ValueTimeMark? = null
+        val mark: TimeMark = TimeSource.Monotonic.markNow()
         setupImage(imageView1, url1, mark)
         setupImage(imageView2, url2, mark)
         setupImage(imageView3, url3, mark)
@@ -94,9 +94,9 @@ class MainActivity : AppCompatActivity() {
     private fun setupImage(
         imageView: ImageView,
         url: String,
-        mark: TimeSource.Monotonic.ValueTimeMark? = null
+        mark: TimeMark,
     ) {
-        imageView.loadImage(url, mark)
+        imageView.loadImageByGlide(url, mark)
     }
 
     override fun onStart() {
