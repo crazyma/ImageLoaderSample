@@ -23,102 +23,373 @@
 			<TextView
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:layout_margin="8dp"
-				android:text="Load Image from Internet by glide"
-				android:textSize="16sp" />
+				android:layout_margin="4dp"
+				android:text="ImageView size 100dp"
+				android:textSize="18sp" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_margin="4dp"
+				android:text="Center Crop"
+				android:textSize="18sp" />
 
 			<ImageView
 				android:id="@+id/glideImageView1"
-				android:layout_width="50dp"
-				android:layout_height="50dp"
-				android:layout_margin="8dp"
+				android:layout_width="100dp"
+				android:layout_height="100dp"
+				android:layout_margin="4dp"
 				android:background="#88880000"
 				tools:ignore="ContentDescription" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_margin="4dp"
+				android:text="Fit Center"
+				android:textSize="18sp" />
 
 			<ImageView
 				android:id="@+id/glideImageView2"
 				android:layout_width="100dp"
 				android:layout_height="100dp"
-				android:layout_margin="8dp"
+				android:layout_margin="4dp"
 				android:background="#88880000"
 				tools:ignore="ContentDescription" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_margin="4dp"
+				android:text="Center Inside"
+				android:textSize="18sp" />
 
 			<ImageView
 				android:id="@+id/glideImageView3"
-				android:layout_width="200dp"
-				android:layout_height="200dp"
-				android:layout_margin="8dp"
+				android:layout_width="100dp"
+				android:layout_height="100dp"
+				android:layout_margin="4dp"
 				android:background="#88880000"
 				tools:ignore="ContentDescription" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_margin="4dp"
+				android:text="Center Inside android ImageView.ScaleType = CENTER"
+				android:textSize="16sp" />
 
 			<ImageView
 				android:id="@+id/glideImageView4"
-				android:layout_width="300dp"
-				android:layout_height="300dp"
-				android:layout_margin="8dp"
-				android:background="#88880000"
-				tools:ignore="ContentDescription" />
-
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_margin="8dp"
-				android:text="Load Image from Internet by Coil"
-				android:textSize="16sp" />
-
-			<ImageView
-				android:id="@+id/coilImageView1"
-				android:layout_width="50dp"
-				android:layout_height="50dp"
-				android:layout_margin="8dp"
-				android:background="#88880000"
-				tools:ignore="ContentDescription" />
-
-			<ImageView
-				android:id="@+id/coilImageView2"
 				android:layout_width="100dp"
 				android:layout_height="100dp"
-				android:layout_margin="8dp"
+				android:layout_margin="4dp"
 				android:background="#88880000"
+				android:scaleType="center"
 				tools:ignore="ContentDescription" />
 
-			<ImageView
-				android:id="@+id/coilImageView3"
-				android:layout_width="200dp"
-				android:layout_height="200dp"
-				android:layout_margin="8dp"
-				android:background="#88880000"
-				tools:ignore="ContentDescription" />
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="2dp"
+				android:background="#000" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_margin="4dp"
+				android:text="ImageView size 300dp"
+				android:textSize="18sp" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_margin="4dp"
+				android:text="Center Crop"
+				android:textSize="18sp" />
 
 			<ImageView
-				android:id="@+id/coilImageView4"
+				android:id="@+id/glideImageView5"
 				android:layout_width="300dp"
 				android:layout_height="300dp"
-				android:layout_margin="8dp"
+				android:layout_margin="4dp"
 				android:background="#88880000"
 				tools:ignore="ContentDescription" />
 
 			<TextView
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:layout_margin="8dp"
-				android:text="Load Image from Resource"
-				android:textSize="16sp" />
+				android:layout_margin="4dp"
+				android:text="Fit Center"
+				android:textSize="18sp" />
 
 			<ImageView
-				android:id="@+id/fixedImageView"
+				android:id="@+id/glideImageView6"
 				android:layout_width="300dp"
 				android:layout_height="300dp"
-				android:layout_margin="8dp"
+				android:layout_margin="4dp"
 				android:background="#88880000"
 				tools:ignore="ContentDescription" />
 
-			<ImageView
-				android:id="@+id/wrapContentImageView"
+			<TextView
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:layout_margin="8dp"
+				android:layout_margin="4dp"
+				android:text="Center Inside"
+				android:textSize="18sp" />
+
+			<ImageView
+				android:id="@+id/glideImageView7"
+				android:layout_width="300dp"
+				android:layout_height="300dp"
+				android:layout_margin="4dp"
 				android:background="#88880000"
+				tools:ignore="ContentDescription" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_margin="4dp"
+				android:text="Center Inside android ImageView.ScaleType = CENTER"
+				android:textSize="16sp" />
+
+			<ImageView
+				android:id="@+id/glideImageView8"
+				android:layout_width="300dp"
+				android:layout_height="300dp"
+				android:layout_margin="4dp"
+				android:background="#88880000"
+				android:scaleType="center"
+				tools:ignore="ContentDescription" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_margin="4dp"
+				android:text="Center Inside android ImageView.ScaleType = FIT_XY"
+				android:textSize="16sp" />
+
+			<ImageView
+				android:id="@+id/glideImageView9"
+				android:layout_width="300dp"
+				android:layout_height="300dp"
+				android:layout_margin="4dp"
+				android:background="#88880000"
+				android:scaleType="fitXY"
+				tools:ignore="ContentDescription" />
+
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="2dp"
+				android:background="#000" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Wrong Url"
+				android:textSize="20sp"
+				android:textStyle="bold" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_margin="4dp"
+				android:text="ImageView size 100dp"
+				android:textSize="18sp" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_margin="4dp"
+				android:text="Center Crop"
+				android:textSize="18sp" />
+
+			<ImageView
+				android:id="@+id/glideImageView11"
+				android:layout_width="100dp"
+				android:layout_height="100dp"
+				android:layout_margin="4dp"
+				android:background="#88880000"
+				tools:ignore="ContentDescription" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_margin="4dp"
+				android:text="Fit Center"
+				android:textSize="18sp" />
+
+			<ImageView
+				android:id="@+id/glideImageView12"
+				android:layout_width="100dp"
+				android:layout_height="100dp"
+				android:layout_margin="4dp"
+				android:background="#88880000"
+				tools:ignore="ContentDescription" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_margin="4dp"
+				android:text="Center Inside"
+				android:textSize="18sp" />
+
+			<ImageView
+				android:id="@+id/glideImageView13"
+				android:layout_width="100dp"
+				android:layout_height="100dp"
+				android:layout_margin="4dp"
+				android:background="#88880000"
+				tools:ignore="ContentDescription" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_margin="4dp"
+				android:text="Center Inside android ImageView.ScaleType = CENTER"
+				android:textSize="16sp" />
+
+			<ImageView
+				android:id="@+id/glideImageView14"
+				android:layout_width="100dp"
+				android:layout_height="100dp"
+				android:layout_margin="4dp"
+				android:background="#88880000"
+				android:scaleType="center"
+				tools:ignore="ContentDescription" />
+
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="2dp"
+				android:background="#000" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_margin="4dp"
+				android:text="ImageView size 300dp"
+				android:textSize="18sp" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_margin="4dp"
+				android:text="Center Crop"
+				android:textSize="18sp" />
+
+			<ImageView
+				android:id="@+id/glideImageView15"
+				android:layout_width="300dp"
+				android:layout_height="300dp"
+				android:layout_margin="4dp"
+				android:background="#88880000"
+				tools:ignore="ContentDescription" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_margin="4dp"
+				android:text="Fit Center"
+				android:textSize="18sp" />
+
+			<ImageView
+				android:id="@+id/glideImageView16"
+				android:layout_width="300dp"
+				android:layout_height="300dp"
+				android:layout_margin="4dp"
+				android:background="#88880000"
+				tools:ignore="ContentDescription" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_margin="4dp"
+				android:text="Center Inside"
+				android:textSize="18sp" />
+
+			<ImageView
+				android:id="@+id/glideImageView17"
+				android:layout_width="300dp"
+				android:layout_height="300dp"
+				android:layout_margin="4dp"
+				android:background="#88880000"
+				tools:ignore="ContentDescription" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_margin="4dp"
+				android:text="Center Inside android ImageView.ScaleType = CENTER"
+				android:textSize="16sp" />
+
+			<ImageView
+				android:id="@+id/glideImageView18"
+				android:layout_width="300dp"
+				android:layout_height="300dp"
+				android:layout_margin="4dp"
+				android:background="#88880000"
+				android:scaleType="center"
+				tools:ignore="ContentDescription" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_margin="4dp"
+				android:text="Center Inside android ImageView.ScaleType = FIT_XY"
+				android:textSize="16sp" />
+
+			<ImageView
+				android:id="@+id/glideImageView19"
+				android:layout_width="300dp"
+				android:layout_height="300dp"
+				android:layout_margin="4dp"
+				android:background="#88880000"
+				android:scaleType="fitXY"
+				tools:ignore="ContentDescription" />
+
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="2dp"
+				android:background="#000"/>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_margin="4dp"
+				android:text="Set placeholder resource into ImageView directly"
+				android:textSize="16sp" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_margin="4dp"
+				android:text="ImageView.ScaleType = CENTER_INSIDE"
+				android:textSize="16sp" />
+
+			<ImageView
+				android:id="@+id/regularImageView1"
+				android:layout_width="300dp"
+				android:layout_height="300dp"
+				android:layout_margin="4dp"
+				android:background="#88880000"
+				android:scaleType="centerInside"
+				android:src="@drawable/loading_square_error"
+				tools:ignore="ContentDescription" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_margin="4dp"
+				android:text="ImageView.ScaleType = FIT_XY"
+				android:textSize="16sp" />
+
+			<ImageView
+				android:id="@+id/regularImageView2"
+				android:layout_width="300dp"
+				android:layout_height="300dp"
+				android:layout_margin="4dp"
+				android:background="#88880000"
+				android:scaleType="fitXY"
+				android:src="@drawable/loading_square_error"
 				tools:ignore="ContentDescription" />
 
 		</LinearLayout>

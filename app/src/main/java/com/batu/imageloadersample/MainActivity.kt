@@ -1,13 +1,15 @@
 package com.batu.imageloadersample
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import coil.load
 import com.batu.imageloadersample.databinding.ActivityMainBinding
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.CustomTarget
+import com.bumptech.glide.request.transition.Transition
 import kotlinx.coroutines.delay
 
 class MainActivity : AppCompatActivity() {
@@ -17,6 +19,11 @@ class MainActivity : AppCompatActivity() {
             "https://w7.pngwing.com/pngs/1000/635/png-transparent-super-mario-bros-donkey-kong" +
                 "-super-mario-world-mario-bros-super-mario-bros-donkey-kong-super-mario-world" +
                 "-thumbnail.png" // 360*408
+
+        private const val url2 =
+            "https://w7.pngwing.com/pngs/1000/635/png-transpankey-kong" +
+                "-super-mario-world-mario-bros-super-mario-bros-donkey-kong-super-mario-world" +
+                "-thumbnail.png"
     }
 
     private lateinit var binding: ActivityMainBinding
@@ -30,29 +37,132 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupViews() = with(binding) {
-        Glide.with(glideImageView1)
+        Glide.with(this@MainActivity)
             .load(url)
+            .placeholder(R.drawable.loading_square)
+            .error(R.drawable.loading_square_error)
+            .centerCrop()
             .into(glideImageView1)
 
-        Glide.with(glideImageView2)
+        Glide.with(this@MainActivity)
             .load(url)
+            .placeholder(R.drawable.loading_square)
+            .error(R.drawable.loading_square_error)
+            .fitCenter()
             .into(glideImageView2)
 
-        Glide.with(glideImageView3)
+        Glide.with(this@MainActivity)
             .load(url)
+            .placeholder(R.drawable.loading_square)
+            .error(R.drawable.loading_square_error)
+            .centerInside()
             .into(glideImageView3)
 
-        Glide.with(glideImageView4)
+        Glide.with(this@MainActivity)
             .load(url)
+            .placeholder(R.drawable.loading_square)
+            .error(R.drawable.loading_square_error)
+            .centerInside()
             .into(glideImageView4)
 
-        coilImageView1.load(url)
-        coilImageView2.load(url)
-        coilImageView3.load(url)
-        coilImageView4.load(url)
+        Glide.with(this@MainActivity)
+            .load(url)
+            .placeholder(R.drawable.loading_square)
+            .error(R.drawable.loading_square_error)
+            .centerCrop()
+            .into(glideImageView5)
 
-        fixedImageView.setImageResource(R.drawable.mario)
-        wrapContentImageView.setImageResource(R.drawable.mario)
+        Glide.with(this@MainActivity)
+            .load(url)
+            .placeholder(R.drawable.loading_square)
+            .error(R.drawable.loading_square_error)
+            .fitCenter()
+            .into(glideImageView6)
+
+        Glide.with(this@MainActivity)
+            .load(url)
+            .placeholder(R.drawable.loading_square)
+            .error(R.drawable.loading_square_error)
+            .centerInside()
+            .into(glideImageView7)
+
+        Glide.with(this@MainActivity)
+            .load(url)
+            .placeholder(R.drawable.loading_square)
+            .error(R.drawable.loading_square_error)
+            .centerInside()
+            .into(glideImageView8)
+
+        Glide.with(this@MainActivity)
+            .load(url)
+            .placeholder(R.drawable.loading_square)
+            .error(R.drawable.loading_square_error)
+            .centerInside()
+            .into(glideImageView9)
+
+        Glide.with(this@MainActivity)
+            .load(url2)
+            .placeholder(R.drawable.loading_square)
+            .error(R.drawable.loading_square_error)
+            .centerCrop()
+            .into(glideImageView11)
+
+        Glide.with(this@MainActivity)
+            .load(url2)
+            .placeholder(R.drawable.loading_square)
+            .error(R.drawable.loading_square_error)
+            .fitCenter()
+            .into(glideImageView12)
+
+        Glide.with(this@MainActivity)
+            .load(url2)
+            .placeholder(R.drawable.loading_square)
+            .error(R.drawable.loading_square_error)
+            .centerInside()
+            .into(glideImageView13)
+
+        Glide.with(this@MainActivity)
+            .load(url2)
+            .placeholder(R.drawable.loading_square)
+            .error(R.drawable.loading_square_error)
+            .centerInside()
+            .into(glideImageView14)
+
+        Glide.with(this@MainActivity)
+            .load(url2)
+            .placeholder(R.drawable.loading_square)
+            .error(R.drawable.loading_square_error)
+            .centerCrop()
+            .into(glideImageView15)
+
+        Glide.with(this@MainActivity)
+            .load(url2)
+            .placeholder(R.drawable.loading_square)
+            .error(R.drawable.loading_square_error)
+            .fitCenter()
+            .into(glideImageView16)
+
+        Glide.with(this@MainActivity)
+            .load(url2)
+            .placeholder(R.drawable.loading_square)
+            .error(R.drawable.loading_square_error)
+            .centerInside()
+            .into(glideImageView17)
+
+        Glide.with(this@MainActivity)
+            .load(url2)
+            .placeholder(R.drawable.loading_square)
+            .error(R.drawable.loading_square_error)
+            .centerInside()
+            .into(glideImageView18)
+
+        Glide.with(this@MainActivity)
+            .load(url2)
+            .placeholder(R.drawable.loading_square)
+            .error(R.drawable.loading_square_error)
+            .centerInside()
+            .into(glideImageView19)
+
     }
 
     override fun onStart() {
@@ -60,24 +170,34 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launchWhenCreated {
             delay(2_000)
             with(binding) {
-                Log.d("badu", "fixedImageView width: ${fixedImageView.width}, height: ${fixedImageView.width}")
-                Log.d("badu", "wrapContentImageView width: ${wrapContentImageView.width}, height: ${wrapContentImageView.width}")
-                Log.d("badu", "glide image 1 : ${getSizeInfo(glideImageView1)}")
-                Log.d("badu", "glide image 2 : ${getSizeInfo(glideImageView2)}")
-                Log.d("badu", "glide image 3 : ${getSizeInfo(glideImageView3)}")
-                Log.d("badu", "glide image 4 : ${getSizeInfo(glideImageView4)}")
-                Log.d("badu", "coil image 1 : ${getSizeInfo(coilImageView1)}")
-                Log.d("badu", "coil image 2 : ${getSizeInfo(coilImageView2)}")
-                Log.d("badu", "coil image 3 : ${getSizeInfo(coilImageView3)}")
-                Log.d("badu", "coil image 4 : ${getSizeInfo(coilImageView4)}")
-                Log.d("badu", "fix image: ${getSizeInfo(fixedImageView)}")
-                Log.d("badu", "wrap content image : ${getSizeInfo(wrapContentImageView)}")
+                glideImageView1.drawable.printSize("1")
+                glideImageView2.drawable.printSize("2")
+                glideImageView3.drawable.printSize("3")
+                glideImageView4.drawable.printSize("4")
+                glideImageView5.drawable.printSize("5")
+                glideImageView6.drawable.printSize("6")
+                glideImageView7.drawable.printSize("7")
+                glideImageView8.drawable.printSize("8")
+                glideImageView9.drawable.printSize("9")
+                glideImageView11.drawable.printSize("11")
+                glideImageView12.drawable.printSize("12")
+                glideImageView13.drawable.printSize("13")
+                glideImageView14.drawable.printSize("14")
+                glideImageView15.drawable.printSize("15")
+                glideImageView16.drawable.printSize("16")
+                glideImageView17.drawable.printSize("17")
+                glideImageView18.drawable.printSize("18")
+                glideImageView19.drawable.printSize("19")
             }
         }
     }
 
-    private fun getSizeInfo(imageView: ImageView): String =
+    private fun getDrawableSizeInfo(imageView: ImageView): String =
         "width: ${imageView.drawable.intrinsicWidth}, height: ${imageView.drawable.intrinsicHeight}"
+}
+
+private fun Drawable.printSize(msg: String = "") {
+    Log.d("badu", "$msg | width: ${intrinsicWidth}, height: ${intrinsicHeight}")
 }
 
 /*
